@@ -1,0 +1,69 @@
+{
+  "archive_dirs": [
+    "/home/user/dev/aiot/AI/dataset/archive",
+    "/home/user/dev/aiot/AI/dataset/archive (1)",
+    "/home/user/dev/aiot/AI/dataset/archive (2)"
+  ],
+  "fakenews_fake_csvs": [
+    "/home/user/dev/aiot/AI/dataset/archive/BuzzFeed_fake_news_content.csv",
+    "/home/user/dev/aiot/AI/dataset/archive/PolitiFact_fake_news_content.csv"
+  ],
+  "fakenews_real_csvs": [
+    "/home/user/dev/aiot/AI/dataset/archive/BuzzFeed_real_news_content.csv",
+    "/home/user/dev/aiot/AI/dataset/archive/PolitiFact_real_news_content.csv"
+  ],
+  "liar_tsvs": {
+    "test": [
+      "/home/user/dev/aiot/AI/dataset/archive (1)/test.tsv"
+    ],
+    "valid": [
+      "/home/user/dev/aiot/AI/dataset/archive (1)/valid.tsv"
+    ],
+    "train": [
+      "/home/user/dev/aiot/AI/dataset/archive (1)/train.tsv"
+    ]
+  },
+  "pheme_candidates": [
+    "/home/user/dev/aiot/AI/dataset/archive (2)/dataset.csv"
+  ],
+  "news_user_files": {
+    "BuzzFeed": [
+      "/home/user/dev/aiot/AI/dataset/archive/BuzzFeedNewsUser.txt"
+    ],
+    "PolitiFact": [
+      "/home/user/dev/aiot/AI/dataset/archive/PolitiFactNewsUser.txt"
+    ]
+  },
+  "user_user_files": {
+    "BuzzFeed": [
+      "/home/user/dev/aiot/AI/dataset/archive/BuzzFeedUserUser.txt"
+    ],
+    "PolitiFact": [
+      "/home/user/dev/aiot/AI/dataset/archive/PolitiFactUserUser.txt"
+    ]
+  },
+  "news_files": {
+    "PolitiFact": [
+      "/home/user/dev/aiot/AI/dataset/archive/PolitiFactNews.txt"
+    ],
+    "BuzzFeed": [
+      "/home/user/dev/aiot/AI/dataset/archive/BuzzFeedNews.txt"
+    ]
+  },
+  "user_files": {
+    "PolitiFact": [
+      "/home/user/dev/aiot/AI/dataset/archive/PolitiFactUser.txt"
+    ],
+    "BuzzFeed": [
+      "/home/user/dev/aiot/AI/dataset/archive/BuzzFeedUser.txt"
+    ]
+  },
+  "user_feature_mats": {
+    "BuzzFeed": [
+      "/home/user/dev/aiot/AI/dataset/archive/BuzzFeedUserFeature.mat"
+    ],
+    "PolitiFact": [
+      "/home/user/dev/aiot/AI/dataset/archive/PolitiFactUserFeature.mat"
+    ]
+  }
+}
