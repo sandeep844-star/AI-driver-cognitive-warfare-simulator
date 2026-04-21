@@ -1,7 +1,6 @@
-import type { Config } from 'tailwindcss'
-import defaultTheme from 'tailwindcss/defaultTheme'
-
-const config: Config = {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  darkMode: 'class',
   content: [
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -9,19 +8,19 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-geist-sans)', ...defaultTheme.fontFamily.sans],
-        mono: ['var(--font-geist-mono)', ...defaultTheme.fontFamily.mono],
+        sans: ['var(--font-geist-sans)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-geist-mono)', 'ui-monospace', 'monospace'],
       },
       colors: {
-        background: '#0B0F14',
-        surface: '#0F172A',
-        foreground: '#E5E7EB',
-        muted: '#94A3B8',
-        accent: {
-          blue: '#3B82F6',
-          purple: '#8B5CF6',
-        },
-      },
+  background: 'var(--color-background)',
+  surface: 'var(--color-surface)',
+  foreground: 'var(--color-foreground)',
+  muted: 'var(--color-muted)',
+  accent: {
+    blue: '#3B82F6',
+    purple: '#8B5CF6',
+  },
+},
       boxShadow: {
         soft: '0 20px 60px rgba(15, 23, 42, 0.28)',
       },
@@ -36,4 +35,3 @@ const config: Config = {
   },
   plugins: [],
 }
-export default config

@@ -6,22 +6,47 @@
   :root {
     --font-geist-sans: 'Inter', sans-serif;
     --font-geist-mono: 'JetBrains Mono', monospace;
+
+    /* Light mode tokens */
+    --color-background: #F8FAFC;
+    --color-surface: #F1F5F9;
+    --color-foreground: #0F172A;
+    --color-muted: #64748B;
+    --color-border: rgba(15, 23, 42, 0.1);
+    --color-grid: rgba(15, 23, 42, 0.05);
+    --color-overlay: rgba(15, 23, 42, 0.03);
+    --color-glow: rgba(59, 130, 246, 0.06);
+  }
+
+  .dark {
+    /* Dark mode tokens */
+    --color-background: #0B0F14;
+    --color-surface: #0F172A;
+    --color-foreground: #E5E7EB;
+    --color-muted: #94A3B8;
+    --color-border: rgba(255, 255, 255, 0.08);
+    --color-grid: rgba(255, 255, 255, 0.03);
+    --color-overlay: rgba(255, 255, 255, 0.03);
+    --color-glow: rgba(59, 130, 246, 0.08);
   }
 
   * {
-    @apply border-slate-800;
+    border-color: var(--color-border);
   }
 
   html {
-    @apply scroll-smooth bg-background;
+    @apply scroll-smooth;
+    background-color: var(--color-background);
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
+    color: var(--color-foreground);
+    background-color: var(--color-background);
+    @apply antialiased;
     background-image:
-      radial-gradient(circle at top, rgba(59, 130, 246, 0.08), transparent 35%),
-      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      radial-gradient(circle at top, var(--color-glow), transparent 35%),
+      linear-gradient(var(--color-grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
     background-size: auto, 72px 72px, 72px 72px;
     background-position: center top, center top, center top;
   }
@@ -33,27 +58,36 @@
   }
 
   .surface {
-    @apply rounded-2xl border border-white/10 bg-white/[0.03] shadow-soft backdrop-blur-xl;
+    @apply rounded-2xl backdrop-blur-xl shadow-soft;
+    background-color: var(--color-overlay);
+    border: 1px solid var(--color-border);
   }
 
   .surface-strong {
-    @apply rounded-3xl border border-white/10 bg-surface/80 shadow-soft backdrop-blur-xl;
+    @apply rounded-3xl backdrop-blur-xl shadow-soft;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    opacity: 0.9;
   }
 
   .section-title {
-    @apply text-3xl font-semibold tracking-tight text-foreground sm:text-4xl;
+    @apply text-3xl font-semibold tracking-tight sm:text-4xl;
+    color: var(--color-foreground);
   }
 
   .section-copy {
-    @apply max-w-2xl text-sm leading-6 text-slate-400 sm:text-base;
+    @apply max-w-2xl text-sm leading-6 sm:text-base;
+    color: var(--color-muted);
   }
 
   .metric-label {
-    @apply text-xs uppercase tracking-[0.2em] text-slate-500;
+    @apply text-xs uppercase tracking-[0.2em];
+    color: var(--color-muted);
   }
 
   .metric-value {
-    @apply text-2xl font-semibold tracking-tight text-foreground;
+    @apply text-2xl font-semibold tracking-tight;
+    color: var(--color-foreground);
   }
 
   .button-base {
@@ -61,19 +95,48 @@
   }
 
   .button-primary {
-    @apply button-base border-slate-700 bg-white text-slate-950 hover:scale-[1.02] hover:bg-slate-100;
+    @apply button-base hover:scale-[1.02];
+    border-color: var(--color-border);
+    background-color: var(--color-foreground);
+    color: var(--color-background);
+  }
+
+  .button-primary:hover {
+    opacity: 0.9;
   }
 
   .button-secondary {
-    @apply button-base border-slate-700 bg-slate-900 text-slate-100 hover:scale-[1.02] hover:bg-slate-800;
+    @apply button-base hover:scale-[1.02];
+    border-color: var(--color-border);
+    background-color: var(--color-surface);
+    color: var(--color-foreground);
   }
 
   .button-ghost {
-    @apply button-base border-slate-700 bg-transparent text-slate-200 hover:scale-[1.02] hover:bg-white/5;
+    @apply button-base hover:scale-[1.02];
+    border-color: var(--color-border);
+    background-color: transparent;
+    color: var(--color-foreground);
+  }
+
+  .button-ghost:hover {
+    background-color: var(--color-overlay);
   }
 
   .input-base {
-    @apply w-full rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-foreground placeholder:text-slate-500 outline-none transition focus:border-slate-500 focus:ring-2 focus:ring-slate-500/20;
+    @apply w-full rounded-2xl px-4 py-3 text-sm outline-none transition;
+    background-color: var(--color-overlay);
+    border: 1px solid var(--color-border);
+    color: var(--color-foreground);
+  }
+
+  .input-base::placeholder {
+    color: var(--color-muted);
+  }
+
+  .input-base:focus {
+    border-color: var(--color-muted);
+    box-shadow: 0 0 0 2px rgba(100, 116, 139, 0.2);
   }
 
   .textarea-base {
@@ -81,21 +144,18 @@
   }
 
   .shimmer {
-    background: linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.08) 37%, rgba(255,255,255,0.03) 63%);
+    background: linear-gradient(90deg, var(--color-overlay) 25%, var(--color-border) 37%, var(--color-overlay) 63%);
     background-size: 400% 100%;
     animation: shimmer 1.4s ease-in-out infinite;
   }
 
   .page-divider {
-    @apply h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent;
+    @apply h-px w-full;
+    background: linear-gradient(to right, transparent, var(--color-border), transparent);
   }
 }
 
 @keyframes shimmer {
-  0% {
-    background-position: 100% 0;
-  }
-  100% {
-    background-position: 0 0;
-  }
+  0% { background-position: 100% 0; }
+  100% { background-position: 0 0; }
 }

@@ -9,10 +9,34 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: 'border-slate-700 bg-white text-slate-950 hover:scale-[1.02] hover:bg-slate-100',
-        secondary: 'border-slate-700 bg-slate-900 text-slate-100 hover:scale-[1.02] hover:bg-slate-800',
-        outline: 'border-slate-700 bg-transparent text-slate-200 hover:scale-[1.02] hover:bg-white/5',
-        subtle: 'border-transparent bg-white/5 text-slate-200 hover:bg-white/8 hover:scale-[1.02]',
+        // Primary: white bg in dark, dark bg in light — always high contrast
+        default: [
+          'dark:border-slate-700 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-100',
+          'border-slate-300 bg-slate-900 text-white hover:bg-slate-800',
+          'hover:scale-[1.02]',
+        ].join(' '),
+
+        // Secondary: dark surface in dark mode, light surface in light mode
+        secondary: [
+          'dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800',
+          'border-slate-300 bg-slate-100 text-slate-800 hover:bg-slate-200',
+          'hover:scale-[1.02]',
+        ].join(' '),
+
+        // Outline: subtle border, adapts fg color
+        outline: [
+          'dark:border-slate-700 dark:text-slate-200 dark:hover:bg-white/5',
+          'border-slate-300 bg-transparent text-slate-700 hover:bg-slate-100',
+          'hover:scale-[1.02]',
+        ].join(' '),
+
+        // Subtle: ghost-like
+        subtle: [
+          'border-transparent',
+          'dark:bg-white/5 dark:text-slate-200 dark:hover:bg-white/10',
+          'bg-slate-100 text-slate-700 hover:bg-slate-200',
+          'hover:scale-[1.02]',
+        ].join(' '),
       },
       size: {
         default: 'h-11',
